@@ -18,7 +18,7 @@ If the current terminal does not support true color, it will resort to the stand
 
 If ANSI colors are not supported, but escape codes are, then it will resort to xterm's base 16 colors with bright and dark variants. 
 
-If escape codes are not supported either, then it will resort to .NET's basic system colors by utilization `ConsoleColor`.
+If escape codes are not supported either, then it will resort to .NET's basic system colors by utilizating the `ConsoleColor` enum.
 
 ## Terminal support
 True color support is determined by the `truecolor` environment variable, which is supplied by the terminal emulator in question. 
