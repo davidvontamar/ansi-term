@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+// ReSharper disable UnusedMember.Global
 
 namespace ANSITerm
 {
@@ -427,38 +428,7 @@ namespace ANSITerm
 				return (byte) (index + 30);
 			return (byte) ((index - 8) + 90);
 		}
-
-		/// <inheritdoc cref="System.Console.Write(string, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void Write(string format, object arg0)
-		{
-			System.Console.Out.Write(format, arg0);
-		}
-
-		/// <inheritdoc cref="System.Console.Write(string, object, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void Write(string format, object arg0, object arg1)
-		{
-			System.Console.Out.Write(format, arg0, arg1);
-		}
-
-		/// <inheritdoc cref="System.Console.Write(string, object, object, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void Write(string format, object arg0, object arg1, object arg2)
-		{
-			System.Console.Out.Write(format, arg0, arg1, arg2);
-		}
-
-		/// <inheritdoc cref="System.Console.Write(string, object[])" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void Write(string format, params object[] arg)
-		{
-			if (arg == null)
-				System.Console.Out.Write(format, null, null);
-			else
-				System.Console.Out.Write(format, arg);
-		}
-
+		
 		/// <inheritdoc cref="System.Console.Write(bool)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void Write(bool value)
@@ -536,13 +506,6 @@ namespace ANSITerm
 			System.Console.Out.Write(value);
 		}
 
-		/// <inheritdoc cref="System.Console.Write(object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void Write(object value)
-		{
-			System.Console.Out.Write(value);
-		}
-
 		/// <inheritdoc cref="System.Console.Write(string)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void Write(string value)
@@ -550,6 +513,36 @@ namespace ANSITerm
 			System.Console.Out.Write(value);
 		}
 
+		/// <summary>
+		/// Performs foreground and background color changes before writing to console and then reverts back to the colors that were set prior to the writing.
+		/// </summary>
+		/// <param name="value">Text.</param>
+		/// <param name="fore">Optional foreground color.</param>
+		/// <param name="back">Optional background color.</param>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static void Write(string value, Color fore, Color back = default)
+		{
+			var prevFore = currentFore;
+			var prevBack = currentBack;
+			if (fore != default)
+				ForeColor = fore;
+			if (back != default)
+				BackColor = back;
+			System.Console.Out.Write(value);
+			if (fore != default)
+				ForeColor = prevFore;
+			if (back != default)
+				BackColor = prevBack;
+		}
+
+		/// <inheritdoc cref="Write(string, Color, Color)" />
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static void WriteLine(string value, Color fore, Color back = default)
+		{
+			Write(value, fore, back);
+			System.Console.WriteLine();
+		}
+		
 		/// <inheritdoc cref="System.Console.WriteLine()" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine()
@@ -634,49 +627,11 @@ namespace ANSITerm
 			System.Console.Out.WriteLine(value);
 		}
 
-		/// <inheritdoc cref="System.Console.WriteLine(object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void WriteLine(object value)
-		{
-			System.Console.Out.WriteLine(value);
-		}
-
 		/// <inheritdoc cref="System.Console.WriteLine(string)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine(string value)
 		{
 			System.Console.Out.WriteLine(value);
-		}
-
-		/// <inheritdoc cref="System.Console.WriteLine(string, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void WriteLine(string format, object arg0)
-		{
-			System.Console.Out.WriteLine(format, arg0);
-		}
-
-		/// <inheritdoc cref="System.Console.WriteLine(string, object, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void WriteLine(string format, object arg0, object arg1)
-		{
-			System.Console.Out.WriteLine(format, arg0, arg1);
-		}
-
-		/// <inheritdoc cref="System.Console.WriteLine(string, object, object, object)" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void WriteLine(string format, object arg0, object arg1, object arg2)
-		{
-			System.Console.Out.WriteLine(format, arg0, arg1, arg2);
-		}
-
-		/// <inheritdoc cref="System.Console.WriteLine(string, object[])" />
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void WriteLine(string format, params object[] arg)
-		{
-			if (arg == null)
-				System.Console.Out.WriteLine(format, null, null);
-			else
-				System.Console.Out.WriteLine(format, arg);
 		}
 
 		/// <summary>
@@ -723,7 +678,7 @@ namespace ANSITerm
 		}
 
 		/// <summary
-		///     cref="FindNearestColor(System.Drawing.Color,(byte index, byte length),System.Collections.Generic.IDictionary{System.Drawing.Color,byte})" />
+		///     cref="FindNearestColor" />
 		private static byte ToXtermColor(this Color color)
 		{
 			return color.FindNearestColor((byte.MinValue, 16), XtermColorIndexes);

@@ -1,4 +1,4 @@
-# ANSI Console
+# ANSITerm.NET
 ## Introduction
 `ANSIConsole.Console` re-implements the `System.Console` class so properties like `Console.ForeColor` would rather take in values from the `Color` class with 24-bit RGB colors than the basic 16 `ConsoleColor`s, and adapt these colors to the limitations of the given terminal emulator.
 
@@ -10,8 +10,9 @@
   - 256 colors sequences.
   - 24-bit true color sequences.
 - ANSI sequences for _italic_, **bold**, underlined, blink, and faint text.
-- Resort to nearest system colors or xterm colors when no support for advanced colors is provided by the terminal.
-- Turn usage for escape codes, 256 colors, and true colors imperatively.
+- Automatic conversion to the nearest 4-bit or 8-bit colors when the terminal does not support 24-bit true color. The algorithm is quite fast and it calculates via the RGB values and keeps a cache dictionary.
+- Turn on/off features: escape codes, 256 colors, and true colors imperatively through the code at runtime.
+- Write/WriteLine methods with foreground and background parameters to appease the usual code bloat with imperative console formatting.
 
 ## Color support
 If the current terminal does not support true color, it will resort to the standard ANSI 256 color palette. 
@@ -40,6 +41,7 @@ using Console = ANSIConsole.Console;
 ```
 
 #### Text formatting
+Multiple formatting ANSI sequences can be applied simoultanously over the current state, and ANSI Console will run an SGR sequence update every time the formatting is being changed by color or by style (as long as the terminal is able to support escape codes).
 ```
 Console.Italic = true;
 Console.WriteLine("Italic text");
@@ -55,11 +57,16 @@ Console.WriteLine("Normal text");
 
 Console.ForeColor = Color.MediumPurple;
 Console.BackColor = Color.MidnightBlue;
-
 Console.WriteLine("Light purple text over dark blue background.")
 Console.ResetColor();
 ```
-As you may notice, multiple formatting ANSI sequences can be applied simoultanously over the current state, and ANSI Console will run an SGR sequence update every time the formatting is being changed by color or by style (as long as the terminal is able to support escape codes).
+It is highly preferred that you use coloring at the Console.Write/WriteLine call as shown below.
+It does not interfere with ForeColor or BackColor and will revert back once it's done printing.
+It'll take care of resetting the colors back (either foreground or background, each separately, if any changed.) after printing the text, but prior to the line breaks to prevent some terminals from filling the entire line with the background selected by Console.BackColor.
+```
+Console.WriteLine("Red text over white background.", Color.Red, Color.White);
+Console.WriteLine("Normal text");
+```
 
 #### Turn on/off features
 You may enable or disable certain features at runtime as shown in the following example.
