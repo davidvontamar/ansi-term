@@ -7,12 +7,12 @@ using System.Runtime.CompilerServices;
 namespace ANSIConsole
 {
 	/// <summary>
-	///     ANSI escape codes wrapper and formatter for .NET's console.
+	/// ANSI escape codes wrapper and formatter for .NET's console.
 	/// </summary>
 	public static partial class Console
 	{
 		/// <summary>
-		///     CLI initialization.
+		/// CLI initialization.
 		/// </summary>
 		static Console()
 		{
@@ -22,13 +22,8 @@ namespace ANSIConsole
 
 			// ReSharper disable once InconsistentNaming
 			var TERM = Environment.GetEnvironmentVariable("TERM");
-			var supportsEscapeCodes = new List<string> {"xterm", "vt100", "linux"};
-			var supports256Colors = new List<string> {"256color"};
-
-			#if DEBUG
-			supports256Colors.Add("linux");
-			#endif
-
+			var supportsEscapeCodes = new List<string> {"xterm", "vt1", "linux"};
+			var supports256Colors = new List<string> {"256color", "rxvt-xpm"};
 			var supportsTrueColor = new List<string> {"truecolor", "24bit"};
 			if (!string.IsNullOrEmpty(TERM))
 			{
@@ -54,7 +49,20 @@ namespace ANSIConsole
 						TermSupportsTrueColor = true;
 						break;
 					}
+				foreach (var term in supports256Colors)
+					if (COLORTERM.Contains(term))
+					{
+						TermSupportsEscapeCodes = true;
+						TermSupports256Colors = true;
+						break;
+					}
 			}
+
+			#if DEBUG
+			//TermSupportsEscapeCodes = true;
+			//TermSupports256Colors = true;
+			//TermSupportsTrueColor = true;
+			#endif
 
 			// Cache known ANSI colors:
 			for (byte index = 0; index < byte.MaxValue; index++)
@@ -74,8 +82,8 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Cross-platform-aware setter for the background color at the current
-		///     position in the console.
+		/// Cross-platform-aware setter for the background color at the current
+		/// position in the console.
 		/// </summary>
 		public static Color BackColor
 		{
@@ -92,7 +100,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles blinking text for terminals that support escape codes.
+		/// Toggles blinking text for terminals that support escape codes.
 		/// </summary>
 		public static bool Blink
 		{
@@ -107,7 +115,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles bold text for terminals that support escape codes.
+		/// Toggles bold text for terminals that support escape codes.
 		/// </summary>
 		public static bool Bold
 		{
@@ -155,7 +163,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles faint text for terminals that support escape codes.
+		/// Toggles faint text for terminals that support escape codes.
 		/// </summary>
 		public static bool Faint
 		{
@@ -170,8 +178,8 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Cross-platform-aware setter for the foreground color at the current
-		///     position in the console.
+		/// Cross-platform-aware setter for the foreground color at the current
+		/// position in the console.
 		/// </summary>
 		public static Color ForeColor
 		{
@@ -189,7 +197,7 @@ namespace ANSIConsole
 
 
 		/// <summary>
-		///     Toggles italic text for terminals that support escape codes.
+		/// Toggles italic text for terminals that support escape codes.
 		/// </summary>
 		public static bool Italic
 		{
@@ -216,7 +224,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles rapid blinking text for terminals that support escape codes.
+		/// Toggles rapid blinking text for terminals that support escape codes.
 		/// </summary>
 		public static bool RapidBlink
 		{
@@ -231,8 +239,8 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles reversed foreground and background colors for terminals that
-		///     support escape codes.
+		/// Toggles reversed foreground and background colors for terminals that
+		/// support escape codes.
 		/// </summary>
 		public static bool ReverseColors
 		{
@@ -247,7 +255,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Toggles underlined text for terminals that support escape codes.
+		/// Toggles underlined text for terminals that support escape codes.
 		/// </summary>
 		public static bool Underline
 		{
@@ -262,7 +270,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Are 256 colors used in the current settings? Depends on escape codes.
+		/// Are 256 colors used in the current settings? Depends on escape codes.
 		/// </summary>
 		public static bool Using256Colors
 		{
@@ -270,7 +278,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Are ANSI escape codes used in the current settings?
+		/// Are ANSI escape codes used in the current settings?
 		/// </summary>
 		public static bool UsingEscapeCodes
 		{
@@ -278,8 +286,8 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Are 24 bit RGB colors used in the current settings? Depends on escape
-		///     codes.
+		/// Are 24 bit RGB colors used in the current settings? Depends on escape
+		/// codes.
 		/// </summary>
 		public static bool UsingTrueColor
 		{
@@ -331,8 +339,8 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Resets foreground and background colors, including ANSI and Xterm escape
-		///     codes for terminals that support it.
+		/// Resets foreground and background colors, including ANSI and Xterm escape
+		/// codes for terminals that support it.
 		/// </summary>
 		public static void ResetColor()
 		{
@@ -347,7 +355,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Resets bold, italic, underline, faint and blink escape codes.
+		/// Resets bold, italic, underline, faint and blink escape codes.
 		/// </summary>
 		public static void ResetStyle()
 		{
@@ -449,7 +457,6 @@ namespace ANSIConsole
 		}
 
 		/// <inheritdoc cref="System.Console.Write(uint)" />
-		[CLSCompliant(false)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void Write(uint value)
 		{
@@ -464,7 +471,6 @@ namespace ANSIConsole
 		}
 
 		/// <inheritdoc cref="System.Console.Write(ulong)" />
-		[CLSCompliant(false)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void Write(ulong value)
 		{
@@ -549,7 +555,6 @@ namespace ANSIConsole
 		}
 
 		/// <inheritdoc cref="System.Console.WriteLine(uint)" />
-		[CLSCompliant(false)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine(uint value)
 		{
@@ -564,7 +569,6 @@ namespace ANSIConsole
 		}
 
 		/// <inheritdoc cref="System.Console.WriteLine(ulong)" />
-		[CLSCompliant(false)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine(ulong value)
 		{
@@ -617,7 +621,7 @@ namespace ANSIConsole
 		}
 
 		/// <summary>
-		///     Updates the SGR state for terminals which support ANSI escape codes.
+		/// Updates the SGR state for terminals which support ANSI escape codes.
 		/// </summary>
 		private static void UpdateSGR()
 		{
@@ -661,7 +665,7 @@ namespace ANSIConsole
 
 
 		/// <summary>
-		///     Enables 256 colors for terminals which can support this.
+		/// Enables 256 colors for terminals which can support this.
 		/// </summary>
 
 		// ReSharper disable once FieldCanBeMadeReadOnly.Global
@@ -669,7 +673,7 @@ namespace ANSIConsole
 		public static bool Enable256Colors = true;
 
 		/// <summary>
-		///     Enables escape codes for terminals which can support this.
+		/// Enables escape codes for terminals which can support this.
 		/// </summary>
 
 		// ReSharper disable once FieldCanBeMadeReadOnly.Global
@@ -677,7 +681,7 @@ namespace ANSIConsole
 		public static bool EnableEscapeCodes = true;
 
 		/// <summary>
-		///     Enables 24bit RGB colors for terminals which can support this.
+		/// Enables 24bit RGB colors for terminals which can support this.
 		/// </summary>
 
 		// ReSharper disable once FieldCanBeMadeReadOnly.Global
@@ -685,42 +689,42 @@ namespace ANSIConsole
 		public static bool EnableTrueColor = true;
 
 		/// <summary>
-		///     Whether the terminal has support for 256 colors.
+		/// Whether the terminal has support for 256 colors.
 		/// </summary>
 		public static readonly bool TermSupports256Colors;
 
 		/// <summary>
-		///     Whether the terminal has support for ANSI escape codes.
+		/// Whether the terminal has support for ANSI escape codes.
 		/// </summary>
 		public static readonly bool TermSupportsEscapeCodes;
 
 		/// <summary>
-		///     Whether the terminal has support for 24 bit RGB colors.
+		/// Whether the terminal has support for 24 bit RGB colors.
 		/// </summary>
 		public static readonly bool TermSupportsTrueColor;
 
 		/// <summary>
-		///     Escape control character.
+		/// Escape control character.
 		/// </summary>
 		private const char Esc = (char) 0x1B;
 
 		/// <summary>
-		///     Cached value for BackColor.
+		/// Cached value for BackColor.
 		/// </summary>
 		private static Color currentBack = Color.Black;
 
 		/// <summary>
-		///     Cached value for ForeColor.
+		/// Cached value for ForeColor.
 		/// </summary>
 		private static Color currentFore = Color.White;
 
 		/// <summary>
-		///     Keeps track of ANSI escape code states.
-		///     1: Bold
-		///     2: Faint
-		///     3: Italic
-		///     4: Underline
-		///     5: Blink
+		/// Keeps track of ANSI escape code states.
+		/// 1: Bold
+		/// 2: Faint
+		/// 3: Italic
+		/// 4: Underline
+		/// 5: Blink
 		/// </summary>
 		private static readonly bool[] SGR = new bool[8];
 	}

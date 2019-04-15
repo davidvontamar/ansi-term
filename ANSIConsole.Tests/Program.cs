@@ -3,12 +3,12 @@
 namespace ANSIConsole.Tests
 {
 	/// <summary>
-	///     Tester program for ANSI Console.
+	/// Tester program for ANSI Console.
 	/// </summary>
 	public static class Program
 	{
 		/// <summary>
-		///     Tests color printing under different terminal support conditions.
+		/// Tests color printing under different terminal support conditions.
 		/// </summary>
 		public static void ColorTestRoutine()
 		{
@@ -32,7 +32,7 @@ namespace ANSIConsole.Tests
 		}
 
 		/// <summary>
-		///     Prints all supported colors on console using ANSI escape codes.
+		/// Prints all supported colors on console using ANSI escape codes.
 		/// </summary>
 		public static void PrintColors()
 		{
@@ -138,7 +138,7 @@ namespace ANSIConsole.Tests
 		}
 
 		/// <summary>
-		///     Prints supported ANSI VT100 styles on console.
+		/// Prints supported ANSI VT100 styles on console.
 		/// </summary>
 		public static void PrintStyles()
 		{
@@ -184,7 +184,7 @@ namespace ANSIConsole.Tests
 		}
 
 		/// <summary>
-		///     Prints information on terminal support for ANSI escape codes and colors.
+		/// Prints information on terminal support for ANSI escape codes and colors.
 		/// </summary>
 		public static void PrintSupport()
 		{
@@ -212,7 +212,7 @@ namespace ANSIConsole.Tests
 		}
 
 		/// <summary>
-		///     Prints greetings.
+		/// Prints greetings.
 		/// </summary>
 		public static void PrintWelcome()
 		{
@@ -220,7 +220,7 @@ namespace ANSIConsole.Tests
 		}
 
 		/// <summary>
-		///     Main entry point.
+		/// Main entry point.
 		/// </summary>
 		private static void Main()
 		{
@@ -235,6 +235,7 @@ namespace ANSIConsole.Tests
 			PrintSupport();
 
 			// Test routine:
+			//ColorTestRoutine();
 			PrintColors();
 			PrintStyles();
 
@@ -259,6 +260,9 @@ namespace ANSIConsole.Tests
 					case "colors":
 					case "color":
 						PrintColors();
+						break;
+					case "test":
+						ColorTestRoutine();
 						break;
 					case "styles":
 					case "style":

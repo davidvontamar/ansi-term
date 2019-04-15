@@ -6,4 +6,25 @@
 	<ItemGroup>
 		<ProjectReference Include="..\ANSIConsole\ANSIConsole.csproj"/>
 	</ItemGroup>
+	<ItemGroup>
+		<_UnmanagedRegistrationCache Remove="obj\ANSIConsole.Tests.csproj.UnmanagedRegistration.cache"/>
+	</ItemGroup>
+	<ItemGroup>
+		<_ResolveComReferenceCache Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.csproj.ResolveComReference.cache"/>
+	</ItemGroup>
+	<ItemGroup>
+		<IntermediateAssembly Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.dll"/>
+	</ItemGroup>
+	<ItemGroup>
+		<_DebugSymbolsIntermediatePath Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.pdb"/>
+	</ItemGroup>
+	<ItemGroup>
+		<_DeploymentManifestEntryPoint Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.dll"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ApplicationManifest Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.dll.manifest"/>
+	</ItemGroup>
+	<ItemGroup>
+		<DeployManifest Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.application"/>
+	</ItemGroup>
 </Project>

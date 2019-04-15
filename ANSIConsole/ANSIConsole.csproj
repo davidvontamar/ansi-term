@@ -1,5 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackageVersion>0.1.0</PackageVersion>
+		<Title>ANSI Console</Title>
+		<Authors>david-tamar</Authors>
+		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
+		<Copyright>2019 David Tamar, MIT license.</Copyright>
+		<PackageProjectUrl>https://github.com/david-tamar/ansi-console.net</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/david-tamar/ansi-console.net/blob/master/LICENSE</PackageLicenseUrl>
+		<RepositoryUrl>https://github.com/david-tamar/ansi-console.net</RepositoryUrl>
+		<RepositoryType></RepositoryType>
+		<PackageTags>console; ansi</PackageTags>
+		<PackageReleaseNotes>Repository includes a test project, examples and documentation.</PackageReleaseNotes>
+		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<DocumentationFile>bin\Release\ANSIConsole.xml</DocumentationFile>
 	</PropertyGroup>
 </Project>
