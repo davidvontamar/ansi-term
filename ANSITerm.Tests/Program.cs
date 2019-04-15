@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ANSIConsole.Tests
+namespace ANSITerm.Tests
 {
 	/// <summary>
 	/// Tester program for ANSI Console.

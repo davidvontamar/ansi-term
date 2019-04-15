@@ -3,6 +3,6 @@
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 	</PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\ANSIConsole\ANSIConsole.csproj"/>
+	  <ProjectReference Include="..\ANSITerm\ANSITerm.csproj" />
 	</ItemGroup>
 </Project>

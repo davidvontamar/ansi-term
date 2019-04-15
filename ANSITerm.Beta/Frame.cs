@@ -1,12 +1,12 @@
-namespace ANSIConsole.Beta
+namespace ANSITerm.Beta
 {
 	/// <summary>
-	///     Frame definition template.
+	/// Frame definition template.
 	/// </summary>
 	public class Frame
 	{
 		/// <summary>
-		///     Constructor.
+		/// Constructor.
 		/// </summary>
 		/// <param name="horizontal">─</param>
 		/// <param name="vertical">│</param>
@@ -36,57 +36,57 @@ namespace ANSIConsole.Beta
 		}
 
 		/// <summary>
-		///     ┴
+		/// ┴
 		/// </summary>
 		public readonly char BottomJoint;
 
 		/// <summary>
-		///     └
+		/// └
 		/// </summary>
 		public readonly char BottomLeftCorner;
 
 		/// <summary>
-		///     ┘
+		/// ┘
 		/// </summary>
 		public readonly char BottomRightCorner;
 
 		/// <summary>
-		///     ┼
+		/// ┼
 		/// </summary>
 		public readonly char Cross;
 
 		/// <summary>
-		///     ─
+		/// ─
 		/// </summary>
 		public readonly char Horizontal;
 
 		/// <summary>
-		///     ├
+		/// ├
 		/// </summary>
 		public readonly char LeftJoint;
 
 		/// <summary>
-		///     ┤
+		/// ┤
 		/// </summary>
 		public readonly char RightJoint;
 
 		/// <summary>
-		///     ┬
+		/// ┬
 		/// </summary>
 		public readonly char TopJoint;
 
 		/// <summary>
-		///     ┌
+		/// ┌
 		/// </summary>
 		public readonly char TopLeftCorner;
 
 		/// <summary>
-		///     ┐
+		/// ┐
 		/// </summary>
 		public readonly char TopRightCorner;
 
 		/// <summary>
-		///     │
+		/// │
 		/// </summary>
 		public readonly char Vertical;
 	}

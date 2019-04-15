@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<PackageVersion>0.1.0</PackageVersion>
-		<Title>ANSI Console</Title>
+		<Title>ANSITerm</Title>
 		<Authors>david-tamar</Authors>
 		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
 		<Copyright>2019 David Tamar, MIT license.</Copyright>

@@ -1,14 +1,12 @@
-using ANSIConsole.Beta;
-
-namespace ANSIConsole
+namespace ANSITerm.Beta
 {
 	/// <summary>
-	///     The standard frame collection from Unicode.
+	/// The standard frame collection from Unicode.
 	/// </summary>
 	public static class Frames
 	{
 		/// <summary>
-		///     Dashed solid frame.
+		/// Dashed solid frame.
 		/// </summary>
 		public static readonly Frame Dashed = new Frame('┄',
 			'┊',
@@ -23,7 +21,7 @@ namespace ANSIConsole
 			'┘');
 
 		/// <summary>
-		///     Dashed thicker solid frame.
+		/// Dashed thicker solid frame.
 		/// </summary>
 		public static readonly Frame DashedThick = new Frame('┅',
 			'┇',
@@ -38,7 +36,7 @@ namespace ANSIConsole
 			'┛');
 
 		/// <summary>
-		///     Double solid frame.
+		/// Double solid frame.
 		/// </summary>
 		public static readonly Frame DoubleSolid = new Frame('═',
 			'║',
@@ -53,7 +51,7 @@ namespace ANSIConsole
 			'╝');
 
 		/// <summary>
-		///     Standard solid frame.
+		/// Standard solid frame.
 		/// </summary>
 		public static readonly Frame Solid = new Frame('─',
 			'│',
@@ -68,7 +66,7 @@ namespace ANSIConsole
 			'┘');
 
 		/// <summary>
-		///     Thicker solid frame.
+		/// Thicker solid frame.
 		/// </summary>
 		public static readonly Frame Thick = new Frame('━',
 			'┃',
