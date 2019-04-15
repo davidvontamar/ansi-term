@@ -37,7 +37,7 @@ ANSI Console's use is fairly similar to .NET's standard console use. With slight
 A `using` alias directive should be declared at each source file that makes use of `ANSIConsole.Console` in order to prevent confusion between the standard base class and `ANSIConsole`'s class.
 
 ```
-using Console = ANSIConsole.Console;
+using Console = ANSITerm.Console;
 ```
 
 #### Text formatting
