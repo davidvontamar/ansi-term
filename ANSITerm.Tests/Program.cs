@@ -216,7 +216,7 @@ namespace ANSITerm.Tests
 		/// </summary>
 		public static void PrintWelcome()
 		{
-			Console.WriteLine("Welcome to ANSI Console for .NET! © 2019 David Tamar, MIT license.");
+			Console.WriteLine("Welcome to ANSITerm for .NET! © 2019 David Tamar, MIT license.");
 		}
 
 		/// <summary>
@@ -235,7 +235,7 @@ namespace ANSITerm.Tests
 			PrintSupport();
 
 			// Test routine:
-			//ColorTestRoutine();
+			ColorTestRoutine();
 			PrintColors();
 			PrintStyles();
 

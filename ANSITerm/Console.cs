@@ -62,7 +62,7 @@ namespace ANSITerm
 			#if DEBUG
 
 			//TermSupportsEscapeCodes = true;
-			//TermSupports256Colors = true;
+			TermSupports256Colors = true;
 			//TermSupportsTrueColor = true;
 			#endif
 
@@ -99,6 +99,8 @@ namespace ANSITerm
 				else
 					System.Console.BackgroundColor = value.ToConsoleColor();
 			}
+			get { return currentBack; }
+
 		}
 
 		/// <summary>
@@ -195,6 +197,7 @@ namespace ANSITerm
 				else
 					System.Console.ForegroundColor = value.ToConsoleColor();
 			}
+			get { return currentFore; }
 		}
 
 
@@ -535,12 +538,21 @@ namespace ANSITerm
 				BackColor = prevBack;
 		}
 
+		/// <summary>
+		/// Fills the current line with spaces from the current position to the right side of the panel.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static void FillLine()
+		{
+			System.Console.Out.Write(string.Empty.PadRight(System.Console.BufferWidth - System.Console.CursorLeft));
+		}
+		
 		/// <inheritdoc cref="Write(string, Color, Color)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine(string value, Color fore, Color back = default)
 		{
 			Write(value, fore, back);
-			System.Console.WriteLine();
+			System.Console.Out.WriteLine();
 		}
 		
 		/// <inheritdoc cref="System.Console.WriteLine()" />

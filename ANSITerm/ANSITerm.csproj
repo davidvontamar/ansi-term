@@ -4,15 +4,16 @@
 		<Title>ANSITerm</Title>
 		<Authors>david-tamar</Authors>
 		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
-		<Copyright>2019 David Tamar, MIT license.</Copyright>
-		<PackageProjectUrl>https://github.com/david-tamar/ansi-console.net</PackageProjectUrl>
+		<Copyright>2019 David Tamar</Copyright>
+		<PackageProjectUrl>https://github.com/david-tamar/ANSITerm</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/david-tamar/ansi-console.net/blob/master/LICENSE</PackageLicenseUrl>
-		<RepositoryUrl>https://github.com/david-tamar/ansi-console.net</RepositoryUrl>
-		<RepositoryType></RepositoryType>
-		<PackageTags>console; ansi</PackageTags>
-		<PackageReleaseNotes>Repository includes a test project, examples and documentation.</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/david-tamar/ANSITerm</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>console; ansi; terminal; escape codes</PackageTags>
+		<PackageReleaseNotes>The git repository includes a test project, examples and documentation.</PackageReleaseNotes>
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>Tamar.ANSITerm</PackageId>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<DocumentationFile>bin\Release\ANSIConsole.xml</DocumentationFile>
