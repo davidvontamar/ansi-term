@@ -371,6 +371,8 @@ namespace ANSITerm
 			SGR[3] = false; // Italic
 			SGR[4] = false; // Underline
 			SGR[5] = false; // Blink
+			SGR[6] = false; // Rapid
+			SGR[7] = false; // Reverse
 			UpdateSGR();
 		}
 
