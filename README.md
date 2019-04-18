@@ -1,6 +1,6 @@
 # ANSITerm
 ## Introduction
-`ANSITerm.Console` re-implements the `System.Console` class so properties like `Console.ForeColor` would rather take in values from the `Color` class with 24-bit RGB colors than the basic 16 `ConsoleColor`s, and adapt these colors to the limitations of the given terminal emulator.
+`ANSITerm.Console` re-implements the `System.Console` class so properties like `Console.ForeColor` would rather take in values from the `Color` class with 24-bit RGB colors than the basic 16 `ConsoleColor`s, and adapt these colors to the limitations of the given terminal emulator using ANSI escape codes.
 
 ![](images/2019-04-14.png)
 
