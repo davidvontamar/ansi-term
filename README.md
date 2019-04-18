@@ -31,8 +31,8 @@ Escape code support is determined by the `TERM` environment variable as well. AN
 **If support for ANSI escape codes is uncertain**, then ANSI console will virtually take **no effect and skip all escape-code-depended formatting**, except for colors which will be handled by .NET's standard `System.Console` class.
 
 ## Example
-#### Import ANSI console
-ANSI Console's use is fairly similar to .NET's standard console use. With slightly different names to some properties such as `Console.ForeColor` instead of `Console.ForegroundColor` and the presence of new switchable properties such as `Console.Italic` or `Console.Blink` to indicate specific ANSI formatting styles.
+#### Import ANSITerm.Console
+ANSITerm.Console's use is fairly similar to .NET's standard console use. With slightly different names to some properties such as `Console.ForeColor` instead of `Console.ForegroundColor` and the presence of new switchable properties such as `Console.Italic` or `Console.Blink` to indicate specific ANSI formatting styles.
 
 A `using` alias directive should be declared at each source file that makes use of `ANSITerm.Console` in order to prevent confusion between the standard base class and `ANSITerm`'s class.
 
