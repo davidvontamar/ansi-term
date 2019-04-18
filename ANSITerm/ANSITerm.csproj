@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<PackageVersion>0.1.0</PackageVersion>
+		<PackageVersion>0.1.1</PackageVersion>
 		<Title>ANSITerm</Title>
 		<Authors>david-tamar</Authors>
 		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
 		<Copyright>2019 David Tamar</Copyright>
 		<PackageProjectUrl>https://github.com/david-tamar/ANSITerm</PackageProjectUrl>
-		<PackageLicenseUrl>https://github.com/david-tamar/ansi-console.net/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageLicenseUrl>https://github.com/david-tamar/ANSITerm/blob/master/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/david-tamar/ANSITerm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>console; ansi; terminal; escape codes</PackageTags>
-		<PackageReleaseNotes>The git repository includes a test project, examples and documentation.</PackageReleaseNotes>
+		<PackageReleaseNotes>Bugfix in ResetStyles.</PackageReleaseNotes>
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Tamar.ANSITerm</PackageId>
