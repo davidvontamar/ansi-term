@@ -22,18 +22,18 @@ If ANSI colors are not supported, but escape codes are, then it will resort to x
 If escape codes are not supported either, then it will resort to .NET's basic system colors by utilizating the `ConsoleColor` enum.
 
 ## Terminal support
-True color support is determined by the `truecolor` environment variable, which is supplied by the terminal emulator in question. 
+**If support for ANSI escape codes is uncertain**, then ANSITerm.Console will virtually take **no effect and skip all escape-code-depended formatting**, except for colors which will be passed to be handled by .NET's standard `System.Console` class.
 
-256 colors support is determined by the `TERM` environment variable for values that include `256color` in them, such as `xterm-256color`.
+**Escape code support** is determined by the `TERM` environment variable as well. ANSI console tries to search for known terminal types such as `xterm`, `linux` and `vt100` to ensure escape code support. 
 
-Escape code support is determined by the `TERM` environment variable as well. ANSI console tries to search for known terminal types such as `xterm`, `linux` and `vt100` to ensure escape code support. 
+**256 colors support** is determined by the `TERM` environment variable for values that include `256color` in them, such as `xterm-256color`.
+
+**True color support** is determined by the `truecolor` environment variable, which is supplied by the terminal emulator in question. 
 
 ### Windows 10 Command Prompt
-The new Windows 10 Command Prompt appears to be supporting properly both ANIS escape codes and 24-bit colors, so I have enabled those features by default if Windows 10 platform is detected.
+The new Windows 10 Command Prompt appears to be supporting properly both ANIS escape codes and 24-bit colors, so those features are enabled by default if the Windows 10 platform is detected regardless of which terminal emulator is being used (because this is a limitation of .NET Core).
 
 In case this causes problems in your application, turn off ANSI escape codes altogether with `Console.EnableEscapeCodes = false;` for Windows 10's `Environment.OSVersion` which is `PlatformID.Win32NT` or just exclude `PlatformID.Unix` which appears to include Linux too under .NET Core 2.2.
-
-**If support for ANSI escape codes is uncertain**, then ANSI console will virtually take **no effect and skip all escape-code-depended formatting**, except for colors which will be handled by .NET's standard `System.Console` class.
 
 ## Example
 #### Import ANSITerm.Console
