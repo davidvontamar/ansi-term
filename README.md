@@ -31,7 +31,7 @@ If escape codes are not supported either, then it will resort to .NET's basic sy
 **True color support** is determined by the `truecolor` environment variable, which is supplied by the terminal emulator in question. 
 
 ### Windows 10 Command Prompt
-The new Windows 10 Command Prompt appears to be supporting properly both ANIS escape codes and 24-bit colors, so those features are enabled by default if the Windows 10 platform is detected regardless of which terminal emulator is being used (because this is a limitation of .NET Core).
+The new Windows 10 Command Prompt appears to be supporting properly both ANSI escape codes and 24-bit colors, so those features are enabled by default if the Windows 10 platform is detected regardless of which terminal emulator is being used (because this is a limitation of .NET Core).
 
 In case this causes problems in your application, turn off ANSI escape codes altogether with `Console.EnableEscapeCodes = false;` for Windows 10's `Environment.OSVersion` which is `PlatformID.Win32NT` or just exclude `PlatformID.Unix` which appears to include Linux too under .NET Core 2.2.
 
