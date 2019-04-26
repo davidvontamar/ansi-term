@@ -23,9 +23,11 @@ namespace ANSITerm
 
 			// ReSharper disable once InconsistentNaming
 			var TERM = Environment.GetEnvironmentVariable("TERM");
+			var osVersion = Environment.OSVersion;
 			var supportsEscapeCodes = new List<string> {"xterm", "vt1", "linux"};
 			var supports256Colors = new List<string> {"256color", "rxvt-xpm"};
 			var supportsTrueColor = new List<string> {"truecolor", "24bit"};
+
 			if (!string.IsNullOrEmpty(TERM))
 			{
 				foreach (var term in supportsEscapeCodes)
@@ -58,11 +60,19 @@ namespace ANSITerm
 						break;
 					}
 			}
+			
+			// The Windows 10 Command Prompt supports ANSI escape codes with 24 bit colors.
+			if ((osVersion.Platform == PlatformID.Win32NT) && (osVersion.Version.Major >= 10))
+			{
+				TermSupportsEscapeCodes = true;
+				TermSupports256Colors = true;
+				TermSupportsTrueColor = true;
+			}
 
 			#if DEBUG
 
 			//TermSupportsEscapeCodes = true;
-			TermSupports256Colors = true;
+			TermSupports256Colors = true; //Enabled to cope with JetBrains Rider's ENV overrides.
 			//TermSupportsTrueColor = true;
 			#endif
 
