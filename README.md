@@ -28,6 +28,11 @@ True color support is determined by the `truecolor` environment variable, which 
 
 Escape code support is determined by the `TERM` environment variable as well. ANSI console tries to search for known terminal types such as `xterm`, `linux` and `vt100` to ensure escape code support. 
 
+### Windows 10 Command Prompt
+The new Windows 10 Command Prompt appears to be supporting properly both ANIS escape codes and 24-bit colors, so I have enabled those features by default if Windows 10 platform is detected.
+
+In case this causes problems in your application, turn off ANSI escape codes altogether with `Console.EnableEscapeCodes = false;` for Windows 10's `Environment.OSVersion` which is `PlatformID.Win32NT` or just exclude `PlatformID.Unix` which appears to include Linux too under .NET Core 2.2.
+
 **If support for ANSI escape codes is uncertain**, then ANSI console will virtually take **no effect and skip all escape-code-depended formatting**, except for colors which will be handled by .NET's standard `System.Console` class.
 
 ## Example
