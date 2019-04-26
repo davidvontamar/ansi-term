@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp2.2</TargetFramework>
+		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 	<ItemGroup>
 		<_UnmanagedRegistrationCache Remove="obj\ANSIConsole.Tests.csproj.UnmanagedRegistration.cache" />
