@@ -42,7 +42,7 @@ ANSITerm.Console's use is fairly similar to .NET's standard console use. With sl
 A `using` alias directive should be declared at each source file that makes use of `ANSITerm.Console` in order to prevent confusion between the standard base class and `ANSITerm`'s class.
 
 ```
-using Console = ANSITerm.Console;
+using Console = Tamar.ANSITerm.Console;
 ```
 
 #### Text formatting
