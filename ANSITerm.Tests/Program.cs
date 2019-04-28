@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ANSITerm.Tests
+namespace Tamar.ANSITerm.Tests
 {
 	/// <summary>
 	/// Tester program for ANSI Console.
@@ -37,37 +37,37 @@ namespace ANSITerm.Tests
 		public static void PrintColors()
 		{
 			byte F(double x,
-				double UP, double DOWN,
+				double climb, double fall,
 				bool inverse = false)
 			{
 				x = Cycle(x);
-				var up = (a: UP, b: UP + 60);
-				var down = (a: DOWN, b: DOWN + 60);
+				var climbingPhase = (a: climb, b: climb + 60);
+				var fallingPhase = (a: fall, b: fall + 60);
 				var y = byte.MinValue;
-				up.a = Cycle(up.a);
-				up.b = Cycle(up.b);
-				down.a = Cycle(down.a);
-				down.b = Cycle(down.b);
+				climbingPhase.a = Cycle(climbingPhase.a);
+				climbingPhase.b = Cycle(climbingPhase.b);
+				fallingPhase.a = Cycle(fallingPhase.a);
+				fallingPhase.b = Cycle(fallingPhase.b);
 
-				if (Between(x, up.a, up.b))
-					y = (byte) (byte.MaxValue * ((x - up.a) / 60.0));
+				if (Between(x, climbingPhase.a, climbingPhase.b))
+					y = (byte) (byte.MaxValue * ((x - climbingPhase.a) / 60.0));
 
-				else if (Between(x, down.a, down.b))
-					y = (byte) (byte.MaxValue * ((down.a - x) / 60.0));
+				else if (Between(x, fallingPhase.a, fallingPhase.b))
+					y = (byte) (byte.MaxValue * ((fallingPhase.a - x) / 60.0));
 
-				else if (UP < DOWN)
+				else if (climb < fall)
 				{
-					if (Between(x, up.b, down.a))
+					if (Between(x, climbingPhase.b, fallingPhase.a))
 						y = byte.MaxValue;
-					else if (Between(x, down.b, up.a))
+					else if (Between(x, fallingPhase.b, climbingPhase.a))
 						y = byte.MinValue;
 				}
 				else
 				{
-					if (Between(x, down.b, up.a))
+					if (Between(x, fallingPhase.b, climbingPhase.a))
 						y = byte.MinValue;
 
-					else if (Between(x, up.b, down.a))
+					else if (Between(x, climbingPhase.b, fallingPhase.a))
 						y = byte.MaxValue;
 				}
 
@@ -106,9 +106,9 @@ namespace ANSITerm.Tests
 				Console.Write(" ");
 			}
 			Console.WriteLine();
+			Console.ResetColor();
 
 			// Color:
-			Console.ResetColor();
 			for (var light = 1.0 - (1.0 / lines); light > (1.0 / lines); light -= 1.0 / lines)
 			{
 				for (var hue = 0; hue < width; hue += 1)

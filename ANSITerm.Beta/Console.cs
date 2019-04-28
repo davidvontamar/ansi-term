@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ANSITerm.Beta
+namespace Tamar.ANSITerm.Beta
 {
 	public static class Console
 	{

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 // ReSharper disable UnusedMember.Global
 
-namespace ANSITerm
+namespace Tamar.ANSITerm
 {
 	/// <summary>
 	/// ANSI escape codes and true color formatting for .NET Core's Console.
@@ -19,13 +20,18 @@ namespace ANSITerm
 		{
 			// Check for terminal support:
 			// ReSharper disable once InconsistentNaming
+			// ReSharper disable once IdentifierTypo
 			var COLORTERM = Environment.GetEnvironmentVariable("COLORTERM");
 
 			// ReSharper disable once InconsistentNaming
 			var TERM = Environment.GetEnvironmentVariable("TERM");
 			var osVersion = Environment.OSVersion;
 			var supportsEscapeCodes = new List<string> {"xterm", "vt1", "linux"};
+
+			// ReSharper disable once StringLiteralTypo
 			var supports256Colors = new List<string> {"256color", "rxvt-xpm"};
+
+			// ReSharper disable once StringLiteralTypo
 			var supportsTrueColor = new List<string> {"truecolor", "24bit"};
 
 			if (!string.IsNullOrEmpty(TERM))
@@ -60,7 +66,7 @@ namespace ANSITerm
 						break;
 					}
 			}
-			
+
 			// The Windows 10 Command Prompt supports ANSI escape codes with 24 bit colors.
 			if ((osVersion.Platform == PlatformID.Win32NT) && (osVersion.Version.Major >= 10))
 			{
@@ -70,6 +76,7 @@ namespace ANSITerm
 			}
 
 			#if DEBUG
+
 			//TermSupportsEscapeCodes = true;
 			//TermSupports256Colors = true;
 			//TermSupportsTrueColor = true;
@@ -109,7 +116,6 @@ namespace ANSITerm
 					System.Console.BackgroundColor = value.ToConsoleColor();
 			}
 			get { return currentBack; }
-
 		}
 
 		/// <summary>
@@ -326,6 +332,16 @@ namespace ANSITerm
 			System.Console.Clear();
 		}
 
+		/// <summary>
+		/// Fills the current line with spaces from the current position to the right side
+		/// of the panel.
+		/// </summary>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static void FillLine()
+		{
+			System.Console.Out.Write(string.Empty.PadRight(System.Console.BufferWidth - System.Console.CursorLeft));
+		}
+
 		/// <inheritdoc cref="System.Console.ReadLine" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static int Read()
@@ -442,7 +458,7 @@ namespace ANSITerm
 				return (byte) (index + 30);
 			return (byte) ((index - 8) + 90);
 		}
-		
+
 		/// <inheritdoc cref="System.Console.Write(bool)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void Write(bool value)
@@ -528,7 +544,8 @@ namespace ANSITerm
 		}
 
 		/// <summary>
-		/// Performs foreground and background color changes before writing to console and then reverts back to the colors that were set prior to the writing.
+		/// Performs foreground and background color changes before writing to console and
+		/// then reverts back to the colors that were set prior to the writing.
 		/// </summary>
 		/// <param name="value">Text.</param>
 		/// <param name="fore">Optional foreground color.</param>
@@ -549,15 +566,6 @@ namespace ANSITerm
 				BackColor = prevBack;
 		}
 
-		/// <summary>
-		/// Fills the current line with spaces from the current position to the right side of the panel.
-		/// </summary>
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void FillLine()
-		{
-			System.Console.Out.Write(string.Empty.PadRight(System.Console.BufferWidth - System.Console.CursorLeft));
-		}
-		
 		/// <inheritdoc cref="Write(string, Color, Color)" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine(string value, Color fore, Color back = default)
@@ -565,7 +573,7 @@ namespace ANSITerm
 			Write(value, fore, back);
 			System.Console.Out.WriteLine();
 		}
-		
+
 		/// <inheritdoc cref="System.Console.WriteLine()" />
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteLine()
@@ -700,8 +708,7 @@ namespace ANSITerm
 			return nearestIndex;
 		}
 
-		/// <summary
-		///     cref="FindNearestColor" />
+		/// <summary cref="FindNearestColor" />
 		private static byte ToXtermColor(this Color color)
 		{
 			return color.FindNearestColor((byte.MinValue, 16), XtermColorIndexes);

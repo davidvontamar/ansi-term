@@ -1,4 +1,4 @@
-namespace ANSITerm.Beta
+namespace Tamar.ANSITerm.Beta
 {
 	/// <summary>
 	/// The standard frame collection from Unicode.

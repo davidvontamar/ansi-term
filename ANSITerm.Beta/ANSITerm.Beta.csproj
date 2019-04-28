@@ -2,6 +2,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 		<IsPackable>false</IsPackable>
+		<AssemblyName>Tamar.ANSITerm.Beta</AssemblyName>
+		<RootNamespace>Tamar.ANSITerm.Beta</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\ANSITerm\ANSITerm.csproj" />

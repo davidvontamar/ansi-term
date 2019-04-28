@@ -3,6 +3,8 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp2.2</TargetFramework>
 		<IsPackable>false</IsPackable>
+		<AssemblyName>Tamar.ANSITerm.Tests</AssemblyName>
+		<RootNamespace>Tamar.ANSITerm.Tests</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
 		<_UnmanagedRegistrationCache Remove="obj\ANSIConsole.Tests.csproj.UnmanagedRegistration.cache" />
