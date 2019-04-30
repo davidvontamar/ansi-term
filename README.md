@@ -31,9 +31,7 @@ If escape codes are not supported either, then it will resort to .NET's basic sy
 **True color support** is determined by the `truecolor` environment variable, which is supplied by the terminal emulator in question. 
 
 ### Windows 10 Command Prompt
-The new Windows 10 Command Prompt appears to be supporting properly both ANSI escape codes and 24-bit colors, so those features are enabled by default if the Windows 10 platform is detected regardless of which terminal emulator is being used (because this is a limitation of .NET Core).
-
-In case this causes problems in your application, turn off ANSI escape codes altogether with `Console.EnableEscapeCodes = false;` for Windows 10's `Environment.OSVersion` which is `PlatformID.Win32NT` or just exclude `PlatformID.Unix` which appears to include Linux too under .NET Core 2.2.
+I've tested CMD's escape code support on both Visual Studio and Rider and experienced different results thus ANSITerm won't support escape codes on the Windows CMD anymore.
 
 ## Example
 #### Import ANSITerm.Console
@@ -46,7 +44,7 @@ using Console = Tamar.ANSITerm.Console;
 ```
 
 #### Text formatting
-Multiple formatting ANSI sequences can be applied simoultanously over the current state, and ANSI Console will run an SGR sequence update every time the formatting is being changed by color or by style (as long as the terminal is able to support escape codes).
+Multiple formatting ANSI sequences can be applied simultaneously over the current state, and ANSI Console will run an SGR sequence update every time the formatting is being changed by color or by style (as long as the terminal is able to support escape codes).
 ```
 Console.Italic = true;
 Console.WriteLine("Italic text");

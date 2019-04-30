@@ -68,15 +68,14 @@ namespace Tamar.ANSITerm
 			}
 
 			// The Windows 10 Command Prompt supports ANSI escape codes with 24 bit colors.
-			if ((osVersion.Platform == PlatformID.Win32NT) && (osVersion.Version.Major >= 10))
+			/*if ((osVersion.Platform == PlatformID.Win32NT) && (osVersion.Version.Major >= 10))
 			{
 				TermSupportsEscapeCodes = true;
 				TermSupports256Colors = true;
 				TermSupportsTrueColor = true;
-			}
+			}*/
 
 			#if DEBUG
-
 			//TermSupportsEscapeCodes = true;
 			//TermSupports256Colors = true;
 			//TermSupportsTrueColor = true;

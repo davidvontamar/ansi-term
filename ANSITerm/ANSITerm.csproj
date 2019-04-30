@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<PackageVersion>0.1.2</PackageVersion>
+		<PackageVersion>0.1.3</PackageVersion>
 		<Title>ANSITerm</Title>
 		<Authors>David Tamar</Authors>
 		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
@@ -10,7 +10,7 @@
 		<RepositoryUrl>https://github.com/david-tamar/ANSITerm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>console; ansi; terminal; escape-codes</PackageTags>
-		<PackageReleaseNotes>Enabled ANSI escape codes for the new Windows 10 Command Prompt.</PackageReleaseNotes>
+		<PackageReleaseNotes>Removed default ANSI escape code support on Windows 10 platforms due to inconsistent results in different IDEs.</PackageReleaseNotes>
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Tamar.ANSITerm</PackageId>
