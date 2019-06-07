@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<PackageVersion>0.1.3</PackageVersion>
+		<PackageVersion>0.1.4</PackageVersion>
 		<Title>ANSITerm</Title>
 		<Authors>David Tamar</Authors>
 		<Description>ANSI escape codes and true color formatting for .NET's console.</Description>
@@ -10,7 +10,11 @@
 		<RepositoryUrl>https://github.com/david-tamar/ANSITerm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>console; ansi; terminal; escape-codes</PackageTags>
-		<PackageReleaseNotes>Removed default ANSI escape code support on Windows 10 platforms due to inconsistent results in different IDEs.</PackageReleaseNotes>
+		<PackageReleaseNotes>Added a new configuration API to ANSITerm.
+Added option to ignore terminal support and use escape codes anyway.
+ForeColor and BackColor are now ForegroundColor and BackgroundColor.
+Removed FillLine.
+Except for FillLine, everything is fully backwards compatible, you can still use the old properties, they re-route your calls to the new properties.</PackageReleaseNotes>
 		<TargetFrameworks>netstandard2.0;netcoreapp2.2</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Tamar.ANSITerm</PackageId>
