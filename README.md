@@ -1,4 +1,6 @@
 # ANSITerm
+*ANSITerm* is available on Nuget as [`Tamar.ANSITerm`](https://www.nuget.org/packages/Tamar.ANSITerm/).
+This package doesn't require any additional dependecies.
 ## Introduction
 `ANSITerm.Console` re-implements the `System.Console` class so properties like `Console.ForegroundColor` would rather take values from the `Color` struct with 24-bit RGB colors than the basic 16 `ConsoleColor`s, and adapt these colors to the limitations of the given terminal emulator using ANSI escape codes.
 
