@@ -1,12 +1,12 @@
-// ANSITerm/Console.Deprecated.cs
-// © 2019 David Tamar. See LICENSE for details.
+// Tamar.ANSITerm/Console.Deprecated.cs
+// © 2019-2020 David von Tamar, see LICENSE for details.
 using System;
 using System.Drawing;
 namespace Tamar.ANSITerm
 {
 	/*
-	 * These are deprecated/renamed members of ANSITerm.Console
-	 * for backwards compatibility, please don't use them.
+	 * These are deprecated/renamed members of Tamar.ANSITerm.Console
+	 * for backwards compatibility.
 	 */
 	public static partial class Console
 	{
@@ -35,18 +35,18 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors8Bit)
-		  + "."
-		  + nameof(Config.Feature.IsEnabled)
-		  + ", or "
-		  + nameof(Config.Feature.Toggle)
-		  + "(), "
-		  + nameof(Config.Feature.Enable)
-		  + "(), and "
-		  + nameof(Config.Feature.Disable)
-		  + "() instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors8Bit)
+			+ "."
+			+ nameof(Config.Feature.IsEnabled)
+			+ ", or "
+			+ nameof(Config.Feature.Toggle)
+			+ "(), "
+			+ nameof(Config.Feature.Enable)
+			+ "(), and "
+			+ nameof(Config.Feature.Disable)
+			+ "() instead.")]
 		public static bool Enable256Colors
 		{
 			get
@@ -70,18 +70,18 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.EscapeCodes)
-		  + "."
-		  + nameof(Config.Feature.IsEnabled)
-		  + ", or"
-		  + nameof(Config.Feature.Toggle)
-		  + "(), "
-		  + nameof(Config.Feature.Enable)
-		  + "(), and "
-		  + nameof(Config.Feature.Disable)
-		  + "() instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.EscapeCodes)
+			+ "."
+			+ nameof(Config.Feature.IsEnabled)
+			+ ", or"
+			+ nameof(Config.Feature.Toggle)
+			+ "(), "
+			+ nameof(Config.Feature.Enable)
+			+ "(), and "
+			+ nameof(Config.Feature.Disable)
+			+ "() instead.")]
 		public static bool EnableEscapeCodes
 		{
 			get
@@ -105,18 +105,18 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors24Bit)
-		  + "."
-		  + nameof(Config.Feature.IsEnabled)
-		  + ", or "
-		  + nameof(Config.Feature.Toggle)
-		  + "(), "
-		  + nameof(Config.Feature.Enable)
-		  + "(), and "
-		  + nameof(Config.Feature.Disable)
-		  + "() instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors24Bit)
+			+ "."
+			+ nameof(Config.Feature.IsEnabled)
+			+ ", or "
+			+ nameof(Config.Feature.Toggle)
+			+ "(), "
+			+ nameof(Config.Feature.Enable)
+			+ "(), and "
+			+ nameof(Config.Feature.Disable)
+			+ "() instead.")]
 		public static bool EnableTrueColor
 		{
 			get
@@ -154,12 +154,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors8Bit)
-		  + "."
-		  + nameof(Config.Feature.IsSupported)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors8Bit)
+			+ "."
+			+ nameof(Config.Feature.IsSupported)
+			+ " instead.")]
 		public static bool TermSupports256Colors
 		{
 			get
@@ -174,12 +174,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.EscapeCodes)
-		  + "."
-		  + nameof(Config.Feature.IsSupported)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.EscapeCodes)
+			+ "."
+			+ nameof(Config.Feature.IsSupported)
+			+ " instead.")]
 		public static bool TermSupportsEscapeCodes
 		{
 			get
@@ -194,12 +194,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors24Bit)
-		  + "."
-		  + nameof(Config.Feature.IsSupported)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors24Bit)
+			+ "."
+			+ nameof(Config.Feature.IsSupported)
+			+ " instead.")]
 		public static bool TermSupportsTrueColor
 		{
 			get
@@ -214,12 +214,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors8Bit)
-		  + "."
-		  + nameof(Config.Feature.InEffect)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors8Bit)
+			+ "."
+			+ nameof(Config.Feature.InEffect)
+			+ " instead.")]
 		public static bool Using256Colors
 		{
 			get
@@ -234,12 +234,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.EscapeCodes)
-		  + "."
-		  + nameof(Config.Feature.InEffect)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.EscapeCodes)
+			+ "."
+			+ nameof(Config.Feature.InEffect)
+			+ " instead.")]
 		public static bool UsingEscapeCodes
 		{
 			get
@@ -254,12 +254,12 @@ namespace Tamar.ANSITerm
 		/// </summary>
 		[Obsolete
 		("Use "
-		  + nameof(Config)
-		  + "."
-		  + nameof(Config.Colors24Bit)
-		  + "."
-		  + nameof(Config.Feature.InEffect)
-		  + " instead.")]
+			+ nameof(Config)
+			+ "."
+			+ nameof(Config.Colors24Bit)
+			+ "."
+			+ nameof(Config.Feature.InEffect)
+			+ " instead.")]
 		public static bool UsingTrueColor
 		{
 			get
@@ -272,11 +272,13 @@ namespace Tamar.ANSITerm
 		/// Fills the current line with spaces from the current position to the right end.
 		/// </summary>
 		[Obsolete
-		("This method was marked obsolete because it's not ANSITerm's responsibility to do layout formatting.",
+		("This method was marked obsolete because it's not Tamar.ANSITerm's responsibility to do layout formatting.",
 			true)]
 		public static void FillLine()
 		{
-			System.Console.Out.Write(string.Empty.PadRight(System.Console.BufferWidth - System.Console.CursorLeft));
+			System.Console.Out.Write
+			(string.Empty.PadRight
+				(System.Console.BufferWidth - System.Console.CursorLeft));
 		}
 
 		/// <summary>

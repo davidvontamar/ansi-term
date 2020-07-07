@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANSITerm", "ANSITerm\ANSITerm.csproj", "{FEA84922-9C9F-4C40-9C82-CAE8F12B52A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamar.ANSITerm", "Tamar.ANSITerm\Tamar.ANSITerm.csproj", "{FEA84922-9C9F-4C40-9C82-CAE8F12B52A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANSITerm.Test", "ANSITerm.Test\ANSITerm.Test.csproj", "{F39DA669-421F-40D9-8766-45813A720F7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamar.ANSITerm.CLI", "Tamar.ANSITerm.CLI\Tamar.ANSITerm.CLI.csproj", "{F39DA669-421F-40D9-8766-45813A720F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamar.ANSITerm.Tests", "Tamar.ANSITerm.Tests\Tamar.ANSITerm.Tests.csproj", "{B290ED50-F949-4B16-ABD2-3167CA468994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{F39DA669-421F-40D9-8766-45813A720F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F39DA669-421F-40D9-8766-45813A720F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F39DA669-421F-40D9-8766-45813A720F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B290ED50-F949-4B16-ABD2-3167CA468994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B290ED50-F949-4B16-ABD2-3167CA468994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B290ED50-F949-4B16-ABD2-3167CA468994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B290ED50-F949-4B16-ABD2-3167CA468994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

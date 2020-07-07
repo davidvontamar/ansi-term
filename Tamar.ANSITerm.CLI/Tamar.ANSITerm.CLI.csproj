@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp2.2</TargetFramework>
 		<IsPackable>false</IsPackable>
-		<AssemblyName>Tamar.ANSITerm.Test</AssemblyName>
-		<RootNamespace>Tamar.ANSITerm.Test</RootNamespace>
+		<OutputType>Exe</OutputType>
+		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<_UnmanagedRegistrationCache Remove="obj\ANSIConsole.Tests.csproj.UnmanagedRegistration.cache" />
@@ -28,6 +27,6 @@
 		<DeployManifest Remove="obj\Release\netcoreapp2.2\ANSIConsole.Tests.application" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\ANSITerm\ANSITerm.csproj" />
+	  <ProjectReference Include="..\Tamar.ANSITerm\Tamar.ANSITerm.csproj" />
 	</ItemGroup>
 </Project>

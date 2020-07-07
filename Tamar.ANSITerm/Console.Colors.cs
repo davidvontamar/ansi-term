@@ -1,12 +1,13 @@
-// ANSITerm/Console.Colors.cs
-// © 2019 David Tamar. See LICENSE for details.
+// Tamar.ANSITerm/Console.Colors.cs
+// © 2019-2020 David von Tamar, see LICENSE for details.
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 namespace Tamar.ANSITerm
 {
 	/*
-	 * This portion of ANSITerm.Console is responsible for its color manipulations.
+	 * This portion of Tamar.ANSITerm.Console is responsible for its handling,
+	 * manipulation, and conversion of colors.
 	 */
 	public static partial class Console
 	{
@@ -31,7 +32,8 @@ namespace Tamar.ANSITerm
 		/// sequences.
 		/// </param>
 		/// <seealso cref="SGRPalette" />
-		public static byte To4BitXTermColor(this Color color, SGRPalette palette)
+		public static byte To4BitXTermColor
+			(this Color color, SGRPalette palette)
 		{
 			var index = color.To4BitANSIColor();
 			if (index < 8)
@@ -70,12 +72,14 @@ namespace Tamar.ANSITerm
 		/// <summary>
 		/// Index cache for 4-bit Xterm colors.
 		/// </summary>
-		private static readonly Dictionary<Color, byte> as4BitXTermColor = new Dictionary<Color, byte>();
+		private static readonly Dictionary<Color, byte> as4BitXTermColor =
+			new Dictionary<Color, byte>();
 
 		/// <summary>
 		/// Index cache for 8-bit ANSI colors.
 		/// </summary>
-		private static readonly Dictionary<Color, byte> as8BitANSIColor = new Dictionary<Color, byte>();
+		private static readonly Dictionary<Color, byte> as8BitANSIColor =
+			new Dictionary<Color, byte>();
 
 		/// <summary>
 		/// The known standard 8-bit colors in their correct order as specified by ANSI.
@@ -357,8 +361,8 @@ namespace Tamar.ANSITerm
 		/// <returns>The index for the nearest 8-bit ANSI color in the given range.</returns>
 		private static byte To8BitANSIColor
 		(this Color color,
-		 (byte index, byte length) range = default,
-		 IDictionary<Color, byte> cache = null)
+			(byte index, byte length) range = default,
+			IDictionary<Color, byte> cache = null)
 		{
 			if (range == default)
 				range = (byte.MinValue, byte.MaxValue);
@@ -369,8 +373,8 @@ namespace Tamar.ANSITerm
 			var nearestDiff = byte.MaxValue * 3;
 			var nearestIndex = byte.MinValue;
 			for (var index = range.index;
-			     index < (range.index + range.length);
-			     index++)
+				index < (range.index + range.length);
+				index++)
 			{
 				var r = Math.Abs(known8BitColors[index].R - color.R);
 				var g = Math.Abs(known8BitColors[index].G - color.G);
