@@ -1,7 +1,7 @@
-﻿// ANSITerm.Test/Program.cs
-// © 2019 David Tamar. See LICENSE for details.
+﻿// Tamar.ANSITerm.CLI/Program.cs
+// © 2019-2020 David von Tamar, see LICENSE for details.
 using System.Drawing;
-namespace Tamar.ANSITerm.Test
+namespace Tamar.ANSITerm.CLI
 {
 	/// <summary>
 	/// Tester program for ANSI Console.
@@ -16,9 +16,9 @@ namespace Tamar.ANSITerm.Test
 		{
 			byte F
 			(double x,
-			 double climb,
-			 double fall,
-			 bool inverse = false)
+				double climb,
+				double fall,
+				bool inverse = false)
 			{
 				x = Cycle(x);
 				var climbingPhase = (a: climb, b: climb + 60);
@@ -55,11 +55,11 @@ namespace Tamar.ANSITerm.Test
 					if (a < b)
 					{
 						if ((var > a)
-						 && (var <= b))
+							&& (var <= b))
 							return true;
 					}
 					else if ((var <= a)
-					 || (var >= b))
+						|| (var >= b))
 						return true;
 					return false;
 				}
@@ -79,8 +79,8 @@ namespace Tamar.ANSITerm.Test
 
 			// Gray scale:
 			for (var index = 0;
-			     index < width;
-			     index++)
+				index < width;
+				index++)
 			{
 				var scale = (byte) (byte.MaxValue * ((double) index / width));
 				Console.BackgroundColor = Color.FromArgb(scale, scale, scale);
@@ -91,36 +91,39 @@ namespace Tamar.ANSITerm.Test
 
 			// Color:
 			for (var light = 1.0 - (1.0 / lines);
-			     light > (1.0 / lines);
-			     light -= 1.0 / lines)
+				light > (1.0 / lines);
+				light -= 1.0 / lines)
 			{
 				for (var hue = 0;
-				     hue < width;
-				     hue += 1)
+					hue < width;
+					hue += 1)
 				{
 					var deg = 360.0 * ((double) hue / width);
 					Console.BackgroundColor = Color.FromArgb
-					((int) (byte.MaxValue - (F(deg, 240, 60, true) * (1 - light))),
-					 (int) (byte.MaxValue - (F(deg, 0, 180, true) * (1 - light))),
-					 (int) (byte.MaxValue - (F(deg, 120, 300, true) * (1 - light))));
+					((int) (byte.MaxValue
+							- (F(deg, 240, 60, true) * (1 - light))),
+						(int) (byte.MaxValue
+							- (F(deg, 0, 180, true) * (1 - light))),
+						(int) (byte.MaxValue
+							- (F(deg, 120, 300, true) * (1 - light))));
 					Console.Write(" ");
 				}
 				Console.ResetColor();
 				Console.WriteLine();
 			}
 			for (var light = 1.0;
-			     light > (1.0 / lines);
-			     light -= 1.0 / lines)
+				light > (1.0 / lines);
+				light -= 1.0 / lines)
 			{
 				for (var hue = 0;
-				     hue < width;
-				     hue += 1)
+					hue < width;
+					hue += 1)
 				{
 					var deg = 360.0 * ((double) hue / width);
 					Console.BackgroundColor = Color.FromArgb
 					((int) (F(deg, 240, 60) * light),
-					 (int) (F(deg, 0, 180) * light),
-					 (int) (F(deg, 120, 300) * light));
+						(int) (F(deg, 0, 180) * light),
+						(int) (F(deg, 120, 300) * light));
 					Console.Write(" ");
 				}
 				Console.ResetColor();
@@ -164,52 +167,52 @@ namespace Tamar.ANSITerm.Test
 		{
 			Console.WriteLine
 			("“help”\n\t"
-		   + "prints this message.");
+				+ "prints this message.");
 			Console.WriteLine
 			("“hello”/“welcome”/“hi”\n\t"
-		   + "prints greeting message.");
+				+ "prints greeting message.");
 			Console.WriteLine
 			("“clear”\n\t"
-		   + "clears buffer.");
+				+ "clears buffer.");
 			Console.WriteLine
 			("“using”/“support”\n\t"
-		   + "shows current config and terminal support for ANSITerm's features.");
+				+ "shows current config and terminal support for Tamar.ANSITerm's features.");
 			Console.WriteLine
 			("“color(s)”\n\t"
-		   + "prints all colors.");
+				+ "prints all colors.");
 			Console.WriteLine
 			("“test”\n\t"
-		   + "execute the main test routine as defined in the source code file.");
+				+ "execute the main test routine as defined in the source code file.");
 			Console.WriteLine
 			("“style(s)”\n\t"
-		   + "prints and tests formatting styles.");
+				+ "prints and tests formatting styles.");
 			Console.WriteLine
 			("“turn esc(ape) (code(s))”\n\t"
-		   + "turns on/off escape codes.");
+				+ "turns on/off escape codes.");
 			Console.WriteLine
 			("“turn 8-bit color(s)”\n\t"
-		   + "turns on/off 8-bit colors (256 colors).");
+				+ "turns on/off 8-bit colors (256 colors).");
 			Console.WriteLine
 			("“turn 24-bit color(s)”\n\t"
-		   + "turns on/off 24-bit “True Color”.");
+				+ "turns on/off 24-bit “True Color”.");
 			Console.WriteLine
 			("“turn style(s)”\n\t"
-		   + "turns on/off formatting styles.");
+				+ "turns on/off formatting styles.");
 			Console.WriteLine
 			("“support esc(ape) (code(s))”\n\t"
-		   + "overrides support for escape codes.");
+				+ "overrides support for escape codes.");
 			Console.WriteLine
 			("“support 8-bit color(s)”\n\t"
-		   + "overrides support for 8-bit colors (256 colors).");
+				+ "overrides support for 8-bit colors (256 colors).");
 			Console.WriteLine
 			("“support 24-bit color(s)”\n\t"
-		   + "overrides support for 24-bit “True Color”.");
+				+ "overrides support for 24-bit “True Color”.");
 			Console.WriteLine
 			("“support style(s)”\n\t"
-		   + "overrides support for formatting styles.");
+				+ "overrides support for formatting styles.");
 			Console.WriteLine
 			("“exit”/“quit”/“close”\n\t"
-		   + "quits the tester.");
+				+ "quits the tester.");
 		}
 
 		/// <summary>
@@ -228,7 +231,8 @@ namespace Tamar.ANSITerm.Test
 		/// </summary>
 		public static void PrintWelcome()
 		{
-			Console.WriteLine("Welcome to ANSITerm! © 2019 David Tamar, MIT license.");
+			Console.WriteLine
+				("Welcome to Tamar.ANSITerm! © 2019 David Tamar, MIT license.");
 			Console.WriteLine("Type “help” to see more commands.");
 		}
 
@@ -246,10 +250,12 @@ namespace Tamar.ANSITerm.Test
 			Console.WriteLine(Console.Config.Colors8Bit.Name);
 			PrintColors();
 			Console.Config.Colors8Bit.Disable();
-			Console.WriteLine("4-bit (16 colors) XTerm palette (using escape codes):");
+			Console.WriteLine
+				("4-bit (16 colors) XTerm palette (using escape codes):");
 			PrintColors();
 			Console.Config.EscapeCodes.Disable();
-			Console.WriteLine("4-bit (16 colors) System.ConsoleColor (no escape codes):");
+			Console.WriteLine
+				("4-bit (16 colors) System.ConsoleColor (no escape codes):");
 			PrintColors();
 			Console.Config.EscapeCodes.Enable();
 			Console.Config.Colors8Bit.Enable();
@@ -263,12 +269,14 @@ namespace Tamar.ANSITerm.Test
 		{
 			if (!Console.Config.EscapeCodes.IsSupported)
 			{
-				Console.WriteLine("Cannot determine support for escape codes on this terminal.");
+				Console.WriteLine
+					("Cannot determine support for escape codes on this terminal.");
 				return;
 			}
 			if (!Console.Config.EscapeCodes.InEffect)
 			{
-				Console.WriteLine("Please enable escape codes to render xterm styles.");
+				Console.WriteLine
+					("Please enable escape codes to render xterm styles.");
 				return;
 			}
 			if (!Console.Config.Styles.IsEnabled)
