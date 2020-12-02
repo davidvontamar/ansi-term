@@ -138,6 +138,6 @@ ANSI's palette includes 256 colors in total. The first 16 colors correspond to t
 This palette includes 16 colors in total and is equivalent to `System.ConsoleColor`'s palette. There are 8 pigments with 2 shades each - bright and dark. The SGR byte values for XTerm's palette are separated in different ranges for foreground and background colors by bright and dark shades. In some terminals the bold sequence turns on the bright shade for the current foreground color, however this behavior doesn't follow the specification as required.
 
 ## License
-*ANSITerm* is under MIT License, © 2019 David Tamar. 
+*ANSITerm* is under MIT License, © 2019-2020 David von Tamar. 
 
 See [LICENSE](LICENSE) for details.
